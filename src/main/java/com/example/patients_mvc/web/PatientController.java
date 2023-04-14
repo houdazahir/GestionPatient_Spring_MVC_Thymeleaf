@@ -41,4 +41,15 @@ public class PatientController {
     public List<Patient> listPatients(){
         return patientRepository.findAll();
     }
+
+    @GetMapping("/formPatients")
+    public String formPatients(Model model){
+        model.addAttribute("patient",new Patient());
+        return "formPatients";
+    }
+    @GetMapping("/save")
+    public String save(Model model,Patient patient){
+        patientRepository.save(patient);
+        return "formPatients";
+    }
 }
