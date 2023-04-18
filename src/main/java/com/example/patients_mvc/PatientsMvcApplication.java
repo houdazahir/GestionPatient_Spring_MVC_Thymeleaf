@@ -16,13 +16,13 @@ public class PatientsMvcApplication {
         SpringApplication.run(PatientsMvcApplication.class, args);
     }
 
-    @Bean
+    //@Bean //permet d inserer a chaque fois (executer a chaque fois command linner)
     CommandLineRunner commandLineRunner(PatientRepository patientRepository) {
         return args -> {
-            patientRepository.save(new Patient(null, "Houda", new Date(), true, 100));
+            patientRepository.save(new Patient(null, "Houda", new Date(), true, 110));
             patientRepository.save(new Patient(null, "Mohamed", new Date(), false, 150));
-            patientRepository.save(new Patient(null, "Selma", new Date(), false, 80));
-            patientRepository.save(new Patient(null, "Ali", new Date(), true, 450));
+            patientRepository.save(new Patient(null, "Selma", new Date(), false, 180));
+            patientRepository.save(new Patient(null, "Salim", new Date(), true, 450));
             patientRepository.findAll().forEach(p -> {
                 System.out.println(p.getNom());
             });
